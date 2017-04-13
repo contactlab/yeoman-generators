@@ -1,0 +1,38 @@
+{
+  "name": "generator-contactlab",
+  "version": "0.1.0",
+  "description": "Generators for Contactlab development workflow",
+  "files": [
+    "generators"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/contactlab/yeoman-generators"
+  },
+  "keywords": [
+    "yeoman-generator",
+    "yeoman",
+    "yo",
+    "generator",
+    "generators",
+    "contactlab",
+    "javascript",
+    "node",
+    "polymer"
+  ],
+  "author": "Contactlab",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/contactlab/yeoman-generators/issues"
+  },
+  "homepage": "https://github.com/contactlab/yeoman-generators#readme",
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "yeoman-generator": "^1.1.1",
+    "yosay": "^2.0.0"
+  }
+}

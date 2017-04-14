@@ -24,7 +24,20 @@ $ yarn global add generator-contactlab
 ```
 $ yo contactlab:element
 ```
-Create a Polymer Web Component written in ES2015 syntax.
+Create a Polymer (v1) Web Component written in ES2015 syntax.
+
+```
+$ yo contactlab:element-v2
+```
+*[Work in progress]* Create a Polymer (v2) Web Component, with its owns:
+
+- HTML template
+- Javascript class extending Polymer.Element
+- localization files (it & en)
+<!--- component related services file-->
+- WCT test
+- TBD JS test
+<!--- component docs page-->
 
 <!--```
 $ yo contactlab:application

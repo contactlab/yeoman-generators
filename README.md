@@ -1,4 +1,4 @@
-# yeoman-generators
+# generator-contactlab
 ```yo contactlab```
 
 A set of generators based on [Yeoman](http://yeoman.io/) for Contactlab applications development workflow.
@@ -29,12 +29,12 @@ Create a Polymer Web Component written in ES2015 syntax.
 <!--```
 $ yo contactlab:application
 ```
-Create the default folder structure for a Contactlab web app project.
+Create the default folder structure for a Contactlab web app project.-->
 
 ```
 $ yo contactlab:readme
 ```
-Create a ```readme.md``` file with a template for Contactlab projects.-->
+Create a ```readme.md``` file with a template for Contactlab projects.
 
 
 ### License

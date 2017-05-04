@@ -39,9 +39,10 @@ $ yo contactlab:element-v2
 - HTML template
 - Javascript class extending Polymer.Element
 - localization files (it & en)
-<!--- component related services file-->
+- component related services file
 - WCT test
 - TBD JS test
+- PostCSS file
 <!--- component docs page-->
 
 <!--```

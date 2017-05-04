@@ -27,6 +27,11 @@ $ yo contactlab:element
 Create a Polymer (v1) Web Component written in ES2015 syntax.
 
 ```
+$ yo contactlab:element-standard
+```
+Create a custom element following the Web Component v1 specification.
+
+```
 $ yo contactlab:element-v2
 ```
 *[Work in progress]* Create a Polymer (v2) Web Component, with its owns:

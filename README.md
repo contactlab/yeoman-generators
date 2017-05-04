@@ -45,15 +45,49 @@ $ yo contactlab:element-v2
 - PostCSS file
 <!--- component docs page-->
 
-<!--```
-$ yo contactlab:application
-```
-Create the default folder structure for a Contactlab web app project.-->
-
 ```
 $ yo contactlab:readme
 ```
 Create a ```readme.md``` file with a template for Contactlab projects.
+
+<!--```
+$ yo contactlab:application
+```
+Create the default folder structure for a Contactlab web app project, it will ask for:
+- application name
+- Bugsnag API key
+- if you want to build a prototype
+
+for more details about this generator check the related section.
+
+### Difference between prototype and application
+
+If you choose to create a **prototype** project, the authentication component will be ignored and the client-side routing will be handled by ```app-route``` instead of ```router5```.
+
+### Application generator details
+Folder structure:
+
+```
+| application
+|- src
+|-- components
+|-- modules
+|-- assets
+|--- css
+|--- img
+|--- fonts
+|- deploy-utils
+|- sh-utils
+```
+
+Packages included:
+- Redux
+- Polymer (NPM wrapper) and polymer-redux
+- Polyfills for Fetch API and Promises
+- Contactsnag
+- Kubozer
+- Saray
+- Polyfills for Fetch API and Promises-->
 
 
 ### License

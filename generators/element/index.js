@@ -27,6 +27,11 @@ module.exports = class extends Generator {
       name: 'npmWrapper',
       message: 'Are you using the "polymer-npm-wrapper" package?',
       default: true
+    },{
+      type: 'confirm',
+      name: 'wcloader',
+      message: 'Are you using the WebComponents loader with Webpack?',
+      default: true
     }];
 
     return this.prompt(prompts).then((props) => {

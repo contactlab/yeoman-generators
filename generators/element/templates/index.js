@@ -2,8 +2,11 @@
 <% if (npmWrapper) { %>
 import {Polymer} from 'polymer-npm-wrapper';
 <% } %>
+<% if (wcloader) { %>
+import './template.html';
+<% } %>
 
-export class <%= elementNameCamel %> {
+class <%= elementNameCamel %> {
 
   /**
   * Behaviors required by the component

@@ -27,10 +27,20 @@ module.exports = class extends Generator {
       name: 'bugsnag',
       message: 'Insert Bugsnag API KEY',
       default: ''
-    }, {
+    },{
+      type: 'input',
+      name: 'onesky',
+      message: 'Insert OneSkyApp API KEY',
+      default: ''
+    },{
       type: 'confirm',
       name: 'prototype',
       message: 'Is this a prototype?',
+      default: false
+    },{
+      type: 'confirm',
+      name: 'globalCss',
+      message: 'Does this project require global CSS?',
       default: false
     }];
 

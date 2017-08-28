@@ -1,6 +1,6 @@
 {
   "name": "generator-contactlab",
-  "version": "0.7.0",
+  "version": "0.8.0",
   "description": "Generators for Contactlab development workflow",
   "files": [
     "generators"
@@ -31,8 +31,8 @@
   },
   "homepage": "https://github.com/contactlab/yeoman-generators#readme",
   "dependencies": {
-    "chalk": "2.0.1",
+    "chalk": "2.1.0",
     "yeoman-generator": "1.1.1",
-    "yosay": "2.0.0"
+    "yosay": "2.0.1"
   }
 }

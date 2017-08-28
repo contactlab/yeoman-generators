@@ -24,9 +24,14 @@ module.exports = class extends Generator {
       default: 'clab-element'
     }, {
       type: 'confirm',
-      name: 'npmWrapper',
-      message: 'Are you using the "polymer-npm-wrapper" package?',
-      default: true
+      name: 'domif',
+      message: 'Do you need the <dom-if> helper element?',
+      default: false
+    }, {
+      type: 'confirm',
+      name: 'domrepeat',
+      message: 'Do you need the <dom-repeat> helper element?',
+      default: false
     }];
 
     return this.prompt(prompts).then((props) => {

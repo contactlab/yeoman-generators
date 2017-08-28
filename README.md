@@ -31,24 +31,17 @@ $ yo contactlab:element-standard
 ```
 Create a custom element following the Web Component v1 specification.
 
-```
-$ yo contactlab:element-standard-old
-```
-Create a custom element following the Web Component v0 specification.
 
 ```
 $ yo contactlab:element-v2
 ```
-*[Work in progress]* Create a Polymer (v2) Web Component, with its owns:
+*[Work in progress]* Create a Polymer (v3) Web Component, with its owns:
 
 - HTML template
-- Javascript class extending Polymer.Element
-- localization files (it & en)
-- component related services file
-- WCT test
-- TBD JS test
-- PostCSS file
-<!--- component docs page-->
+- Javascript class extending PolymerElement
+- properties object file
+- starter files for internal & public methods
+- AVA.js unit test starter
 
 ```
 $ yo contactlab:readme

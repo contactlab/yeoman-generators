@@ -9,6 +9,7 @@ class <%= elementNameCamel %> extends HTMLElement {
   */
   constructor(){
     super();
+    this.SD = this.attachShadow({ mode: 'open' });
   }
 
   /**

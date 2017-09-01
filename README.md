@@ -33,7 +33,7 @@ Create a custom element following the Web Component v1 specification.
 
 
 ```
-$ yo contactlab:element-v2
+$ yo contactlab:element-next
 ```
 *[Work in progress]* Create a Polymer (v3) Web Component, with its owns:
 

@@ -24,6 +24,11 @@ module.exports = class extends Generator {
       default: 'clab-element'
     }, {
       type: 'confirm',
+      name: 'postcss',
+      message: 'Do you need the <post-css> element?',
+      default: true
+    }, {
+      type: 'confirm',
       name: 'domif',
       message: 'Do you need the <dom-if> helper element?',
       default: false

@@ -37,11 +37,12 @@ $ yo contactlab:element-next
 ```
 *[Work in progress]* Create a Polymer (v3) Web Component, with its owns:
 
-- HTML template
-- Javascript class extending PolymerElement
-- properties object file
-- starter files for internal & public methods
-- AVA.js unit test starter
+- HTML `template`
+- Javascript `class` extending PolymerElement
+- `properties` object file
+- starter files for internal & public `methods`
+- a .postcss file to be compiled for `styles`
+- AVA.js `unit test` starter
 
 ```
 $ yo contactlab:readme

@@ -12,7 +12,9 @@
   },
   "scripts": {
     "stylelint": "stylelint ./src/components/**/*.postcss",
-    "lint": "eslint ./src/index.js ./src/components ./src/lib"
+    "lint": "eslint ./src/index.js ./src/components ./src/lib",
+    "pretest": "yarn run lint",
+    "test": "nyc ava"
   },
   "bugsnag": {
     "apiKey": "<%= bugsnag %>",
@@ -45,6 +47,7 @@
     "eslint-config-contactlab": "1.0.0",
     "http-server": "0.10.0",
     "lost": "8.2.0",
+    "nyc": "11.2.1",
     "postcss-cssnext": "2.11.0",
     "postcss-easing-gradients": "1.2.3",
     "postcss-reporter": "5.0.0",
@@ -56,6 +59,18 @@
     "web-component-tester": "6.1.5",
     "webpack": "3.6.0",
     "webpack-dev-server": "2.8.2"
+  },
+  "ava": {
+    "files": [
+      "./src/components/**/test/unit.js",
+      "./src/lib/**/test/*.js"
+    ],
+    "failFast": true,
+    "failWithoutAssertions": false,
+    "babel": "inherit",
+    "require": [
+      "babel-register"
+    ]
   },
   "babel": {
     "comments": false,
@@ -90,5 +105,12 @@
     },
     "plugins": [],
     "settings": {}
+  },
+  "nyc": {
+    "exclude": [
+      "**/*.test.js",
+      "**/_helpers.js",
+      "**/unit.js"
+    ]
   }
 }

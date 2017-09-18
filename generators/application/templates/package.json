@@ -26,10 +26,6 @@
     "saray": "saray --port 3000 --path ./stubbs --root <%= sarayRoot %> --dynpath _",
     "dev": "run-p -cn saray server"
   },
-  "bugsnag": {
-    "apiKey": "<%= bugsnag %>",
-    "minifiedUrl": "https://flow.contactlab.it/app.js"
-  },
   "dependencies": {
     "@polymer/polymer": "next",
     "contactlab-ui-components": "2.0.0",
@@ -99,6 +95,12 @@
     "last 2 versions",
     "ie >= 11"
   ],
+  "bugsnag": {
+    "apiKey": "<%= bugsnag %>",
+    "minifiedUrl": "https://<%= appName %>.contactlab.it/app.js",
+    "sourceMap": "dist/app.js.map",
+    "minifiedFile": "dist/app.js"
+  },
   "eslintConfig": {
     "parserOptions": {
       "ecmaVersion": 6,

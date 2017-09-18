@@ -1,8 +1,6 @@
 # Logs
-yarn.lock
 logs
-*.log
-npm-debug.log*
+*.log*
 
 # Runtime data
 pids
@@ -17,9 +15,6 @@ coverage
 
 # nyc test coverage
 .nyc_output
-
-# Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
-.grunt
 
 # node-waf configuration
 .lock-wscript

@@ -25,7 +25,7 @@ const uglify = () => new UglifyJSPlugin({
 
 module.exports = {
   entry: [
-    path.join(__dirname, SRC, 'app.js')
+    path.join(__dirname, SRC, 'index.js')
   ],
   output: {
     path:     OUTPUT,

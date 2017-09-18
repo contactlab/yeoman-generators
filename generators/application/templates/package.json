@@ -52,6 +52,7 @@
     "stylelint-config-standard": "17.0.0",
     "text-loader": "0.0.1",
     "uglifyjs-webpack-plugin": "0.4.6",
+    "web-component-tester": "6.1.5",
     "webpack": "3.6.0",
     "webpack-dev-server": "2.8.2"
   },

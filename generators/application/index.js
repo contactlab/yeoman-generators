@@ -24,6 +24,11 @@ module.exports = class extends Generator {
       default: 'clab-application'
     },{
       type: 'input',
+      name: 'sarayRoot',
+      message: 'Insert Saray root path',
+      default: '/'
+    },{
+      type: 'input',
       name: 'bugsnag',
       message: 'Insert Bugsnag API KEY',
       default: ''

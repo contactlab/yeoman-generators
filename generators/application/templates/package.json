@@ -23,6 +23,8 @@
     "start": "http-server ./dist -p 8180 --silent",
     "preserver": "yarn run prepare",
     "server": "webpack-dev-server --hot",
+    "saray": "saray --port 3000 --path ./stubbs --root <%= sarayRoot %> --dynpath _",
+    "dev": "run-p -cn saray server"
   },
   "bugsnag": {
     "apiKey": "<%= bugsnag %>",
@@ -55,6 +57,7 @@
     "eslint-config-contactlab": "1.0.0",
     "http-server": "0.10.0",
     "lost": "8.2.0",
+    "npm-run-all": "4.1.1",
     "nyc": "11.2.1",
     "postcss-cssnext": "2.11.0",
     "postcss-easing-gradients": "1.2.3",

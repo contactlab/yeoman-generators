@@ -11,7 +11,7 @@
     "yarn": ">= 1.0"
   },
   "scripts": {
-    
+    "stylelint": "stylelint ./src/components/**/*.postcss"
   },
   "bugsnag": {
     "apiKey": "<%= bugsnag %>",
@@ -54,5 +54,9 @@
     "uglifyjs-webpack-plugin": "0.4.6",
     "webpack": "3.6.0",
     "webpack-dev-server": "2.8.2"
-  }
+  },
+  "browserslist": [
+    "last 2 versions",
+    "ie >= 11"
+  ]
 }

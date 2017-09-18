@@ -34,19 +34,19 @@ module.exports = class extends Generator {
       default: ''
     },{
       type: 'input',
-      name: 'onesky',
+      name: 'oneskyApiKey',
       message: 'Insert OneSkyApp API KEY',
       default: ''
     },{
-      type: 'confirm',
-      name: 'prototype',
-      message: 'Is this a prototype?',
-      default: false
+      type: 'input',
+      name: 'oneskySecret',
+      message: 'Insert OneSkyApp SECRET',
+      default: ''
     },{
-      type: 'confirm',
-      name: 'globalCss',
-      message: 'Does this project require global CSS?',
-      default: false
+      type: 'input',
+      name: 'oneskyProjectId',
+      message: 'Insert OneSkyApp PROJECT ID',
+      default: ''
     }];
 
     return this.prompt(prompts).then((props) => {

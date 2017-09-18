@@ -34,6 +34,7 @@
     "contactlab-ui-components": "2.0.0",
     "contactsnag": "1.1.0",
     "ikonograph": "4.0.3",
+    "onesky-cli": "0.0.2",
     "polymer-redux": "1.0.3",
     "redux": "3.7.2",
     "redux-devtools-extension": "2.13.2",
@@ -73,7 +74,9 @@
     "uglifyjs-webpack-plugin": "0.4.6",
     "web-component-tester": "6.1.5",
     "webpack": "3.6.0",
-    "webpack-dev-server": "2.8.2"
+    "webpack-dev-server": "2.8.2",
+    "onesky:download": "onesky-cli download",
+    "onesky:upload": "onesky-cli upload"
   },
   "ava": {
     "files": [
@@ -133,5 +136,13 @@
       "**/_helpers.js",
       "**/unit.js"
     ]
+  },
+  "oneSkyCli": {
+    "path": "src/i18n",
+    "apiKey": "<%= oneskyApiKey %>",
+    "secret": "<%= oneskySecret %>",
+    "projectId": "<%= oneskyProjectId %>",
+    "languages": ["it", "en"],
+    "fileName": "en.json"
   }
 }

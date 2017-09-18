@@ -51,25 +51,34 @@ module.exports = class extends Generator {
 
     return this.prompt(prompts).then((props) => {
       this.props = props;
-      const temp = this.props.elementName.replace(/-([a-z])/g, (g) => {
-        return g[1].toUpperCase();
-      });
-      this.props.elementNameCamel = capitalizeFirstLetter(temp);
+      // const temp = this.props.elementName.replace(/-([a-z])/g, (g) => {
+      //   return g[1].toUpperCase();
+      // });
+      // this.props.elementNameCamel = capitalizeFirstLetter(temp);
     });
   }
 
   create(){
-    const elementName = this.props.elementName;
+    const appName = this.props.appName;
 
     this.fs.copyTpl(
       this.templatePath('**/*'),
-      this.destinationPath(elementName),
-      this.props
+      this.destinationPath(appName),
+      this.props,
+      {},
+      {globOptions: {dot: true}}
     );
   }
 
-  dependencies(){
-    this.npmInstall();
+  install() {
+    const appDir = `${process.cwd()}/${this.props.appName}`;
+    process.chdir(appDir);
+
+    this.installDependencies({
+      npm: false,
+      bower: false,
+      yarn: true
+    });
   }
 
 };

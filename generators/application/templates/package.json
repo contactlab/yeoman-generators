@@ -11,7 +11,8 @@
     "yarn": ">= 1.0"
   },
   "scripts": {
-    "stylelint": "stylelint ./src/components/**/*.postcss"
+    "stylelint": "stylelint ./src/components/**/*.postcss",
+    "lint": "eslint ./src/index.js ./src/components ./src/lib"
   },
   "bugsnag": {
     "apiKey": "<%= bugsnag %>",
@@ -59,5 +60,24 @@
   "browserslist": [
     "last 2 versions",
     "ie >= 11"
-  ]
+  ],
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true
+      }
+    },
+    "extends": [
+      "contactlab"
+    ],
+    "parser": "babel-eslint",
+    "env": {
+      "es6": true,
+      "browser": true
+    },
+    "plugins": [],
+    "settings": {}
+  }
 }

@@ -24,47 +24,61 @@ module.exports = class extends Generator {
       default: 'clab-application'
     },{
       type: 'input',
+      name: 'sarayRoot',
+      message: 'Insert Saray root path',
+      default: '/'
+    },{
+      type: 'input',
       name: 'bugsnag',
       message: 'Insert Bugsnag API KEY',
       default: ''
     },{
       type: 'input',
-      name: 'onesky',
+      name: 'oneskyApiKey',
       message: 'Insert OneSkyApp API KEY',
       default: ''
     },{
-      type: 'confirm',
-      name: 'prototype',
-      message: 'Is this a prototype?',
-      default: false
+      type: 'input',
+      name: 'oneskySecret',
+      message: 'Insert OneSkyApp SECRET',
+      default: ''
     },{
-      type: 'confirm',
-      name: 'globalCss',
-      message: 'Does this project require global CSS?',
-      default: false
+      type: 'input',
+      name: 'oneskyProjectId',
+      message: 'Insert OneSkyApp PROJECT ID',
+      default: ''
     }];
 
     return this.prompt(prompts).then((props) => {
       this.props = props;
-      const temp = this.props.elementName.replace(/-([a-z])/g, (g) => {
-        return g[1].toUpperCase();
-      });
-      this.props.elementNameCamel = capitalizeFirstLetter(temp);
+      // const temp = this.props.elementName.replace(/-([a-z])/g, (g) => {
+      //   return g[1].toUpperCase();
+      // });
+      // this.props.elementNameCamel = capitalizeFirstLetter(temp);
     });
   }
 
   create(){
-    const elementName = this.props.elementName;
+    const appName = this.props.appName;
 
     this.fs.copyTpl(
       this.templatePath('**/*'),
-      this.destinationPath(elementName),
-      this.props
+      this.destinationPath(appName),
+      this.props,
+      {},
+      {globOptions: {dot: true}}
     );
   }
 
-  dependencies(){
-    this.npmInstall();
+  install() {
+    const appDir = `${process.cwd()}/${this.props.appName}`;
+    process.chdir(appDir);
+
+    this.installDependencies({
+      npm: false,
+      bower: false,
+      yarn: true
+    });
   }
 
 };

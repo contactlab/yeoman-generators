@@ -1,0 +1,184 @@
+// Map branches names to build commands
+def BRANCHES_TO_LABEL = [
+  master: 'production',
+  staging: 'staging',
+  develop: 'dev'
+]
+
+// Get environment name from branch name
+def envFromBranch = {key ->
+  def safeKey = BRANCHES_TO_LABEL.containsKey(key) ? key : 'develop'
+  BRANCHES_TO_LABEL[safeKey]
+}
+
+// Get npm build command from branch name
+def build = {key ->
+  "yarn run build:${envFromBranch(key)}"
+}
+
+// Common notification function
+def notify(status) {
+  mail(
+    to: "",
+    subject: "[${status}]: ${env.JOB_NAME} ${env.BUILD_DISPLAY_NAME}",
+    body: "${env.BUILD_URL}",
+  )
+}
+
+// Teams Webhook
+def teamsbot() {
+  def data = """{
+	  \"title\": \"[${currentBuild.currentResult}] ${env.JOB_NAME}\",
+	  \"text\": \"Build #${env.BUILD_NUMBER} on ${env.BRANCH_NAME}\",
+	  \"potentialAction\": [{
+			\"@context\": \"http://schema.org\",
+			\"@type\": \"ViewAction\",
+			\"name\": \"View in Build\",
+			\"target\": [\"${env.JOB_URL}\"]
+		}]
+  }"""
+
+  sh(
+    script: "curl -H \"Content-Type: application/json\" -X POST -d '${data}' ${env.TEAMSWH}"
+  )
+}
+
+// Run pipeline (the declarative way)
+pipeline {
+  agent any
+
+  options {
+    ansiColor('xterm')
+  }
+
+  environment {
+    PROXY = ''
+    YARN_INST = 'https://yarnpkg.com/install.sh'
+    TEAMSWH = ''
+    ASSEMBLA_USER = ''
+    PRODUCT_PREFIX = ''
+    PROD_BRANCH = 'master'
+  }
+
+  stages {
+    stage('NodeJs Installation') {
+      steps {
+        script {
+          def nodeHome = tool(
+            type: 'jenkins.plugins.nodejs.tools.NodeJSInstallation',
+            name: 'Stable',
+          )
+
+          env.PATH = "${nodeHome}/bin:${env.PATH}"
+
+          sh "npm config set proxy ${env.PROXY}"
+          sh 'node --version'
+          sh 'npm --version'
+        }
+      }
+    }
+
+    stage('Yarn installation') {
+      steps {
+        sh 'rm -rf $HOME/.yarn'
+        sh "curl -o- -L ${env.YARN_INST} | bash"
+
+        // Use `env.PATH` in order to share $PATH environment variable changes
+        script {
+          env.PATH = "${env.HOME}/.yarn/bin:${env.PATH}"
+        }
+      }
+    }
+
+    stage('Install dependencies') {
+      steps {
+        sh 'yarn install'
+      }
+    }
+
+    stage('Test') {
+      steps {
+        sh 'yarn test'
+      }
+    }
+
+    stage('WCT') {
+      steps {
+        sh "${build()}"
+        sh 'xvfb-run --auto-servernum --server-num=0 --server-args="-screen 0, 1900x1200x16" yarn wct'
+      }
+    }
+
+    stage('Build') {
+      steps {
+        sh "${build(env.BRANCH_NAME)}"
+      }
+    }
+
+    stage('Update releases repository') {
+      steps {
+        sh 'rm -rf tmp'
+
+        dir('tmp') {
+          git(
+            credentialsId: "${env.ASSEMBLA_USER}",
+            url: 'git@assembla.contactlab.com:product.releases.git',
+            branch: "${env.PRODUCT_PREFIX}${envFromBranch(env.BRANCH_NAME)}"
+          )
+
+          sh 'rm -rf bundle.js bundle.js.map assets/ i18n/ index.html vendor/'
+          sh "cp -r ${env.WORKSPACE}/dist/* ${env.WORKSPACE}/tmp"
+          sh 'git add --all'
+          sh "git commit -m 'Build ${env.BUILD_ID}' || echo 'Commit failed. There is probably nothing to commit.'"
+          sh "git push --follow-tags origin ${env.PRODUCT_PREFIX}${envFromBranch(env.BRANCH_NAME)}"
+        }
+      }
+    }
+
+    stage('Deploy') {
+      when {
+        expression {
+          return (env.BRANCH_NAME != env.PROD_BRANCH)
+        }
+      }
+      steps {
+        sh 'rm -rf deploy'
+
+        dir('deploy') {
+          git(
+            credentialsId: "${env.ASSEMBLA_USER}",
+            url: 'git@assembla.contactlab.com:platform-deployment.git'
+          )
+
+          dir('app/---') {
+            sh """#!/bin/bash
+                source ${env.HOME}/.rvm/scripts/rvm
+                rvm use --default 2.3.0
+                bundle install
+
+                echo "exec cap ${envFromBranch(env.BRANCH_NAME)} deploy"
+
+                bundle exec cap ${envFromBranch(env.BRANCH_NAME)} deploy:check
+                bundle exec cap ${envFromBranch(env.BRANCH_NAME)} deploy"""
+          }
+        }
+      }
+    }
+  }
+
+  post {
+    always {
+      teamsbot()
+      echo 'Cleanup workspace'
+      deleteDir()
+    }
+
+    failure {
+      notify("FAILURE")
+    }
+
+    unstable {
+      notify("UNSTABLE")
+    }
+  }
+}

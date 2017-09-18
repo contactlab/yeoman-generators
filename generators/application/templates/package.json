@@ -27,7 +27,9 @@
     "preserver": "yarn run prepare",
     "server": "webpack-dev-server --hot",
     "saray": "saray --port 3000 --path ./stubbs --root <%= sarayRoot %> --dynpath _",
-    "dev": "run-p -cn saray server"
+    "dev": "run-p -cn saray server",
+    "onesky:download": "onesky-cli download",
+    "onesky:upload": "onesky-cli upload"
   },
   "dependencies": {
     "@polymer/polymer": "next",
@@ -74,9 +76,7 @@
     "uglifyjs-webpack-plugin": "0.4.6",
     "web-component-tester": "6.1.5",
     "webpack": "3.6.0",
-    "webpack-dev-server": "2.8.2",
-    "onesky:download": "onesky-cli download",
-    "onesky:upload": "onesky-cli upload"
+    "webpack-dev-server": "2.8.2"
   },
   "ava": {
     "files": [

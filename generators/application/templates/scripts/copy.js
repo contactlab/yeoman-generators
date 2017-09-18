@@ -10,8 +10,8 @@ module.exports = () =>
   start('Copying resources in vendor')
     // .then(() => fs.ensureSymlink(MODULES, BOWER))
     .then(() => copyGlob(
-      path.join(MODULES, 'contactlab-ui-components/_assets/+(css|fonts)'),
-      path.join(VENDOR, 'contactlab-ui-components/_assets')
+      path.join(MODULES, 'contactlab-ui-components/assets/+(css|fonts)'),
+      path.join(VENDOR, 'contactlab-ui-components/assets')
     ))
     .then(() => copyGlob(
       path.join(MODULES, 'webcomponents.js/*.js'),

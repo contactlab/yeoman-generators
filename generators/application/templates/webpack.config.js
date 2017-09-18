@@ -29,7 +29,7 @@ module.exports = {
   ],
   output: {
     path:     OUTPUT,
-    filename: 'app.js',
+    filename: 'bundle.js',
   },
   devtool: 'source-map',
   plugins: ISPROD ? PLUGINS.concat(uglify()) : PLUGINS,

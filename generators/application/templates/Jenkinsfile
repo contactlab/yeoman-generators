@@ -126,7 +126,7 @@ pipeline {
             branch: "${env.PRODUCT_PREFIX}${envFromBranch(env.BRANCH_NAME)}"
           )
 
-          sh 'rm -rf app.js app.js.map assets/ i18n/ index.html vendor/'
+          sh 'rm -rf bundle.js bundle.js.map assets/ i18n/ index.html vendor/'
           sh "cp -r ${env.WORKSPACE}/dist/* ${env.WORKSPACE}/tmp"
           sh 'git add --all'
           sh "git commit -m 'Build ${env.BUILD_ID}' || echo 'Commit failed. There is probably nothing to commit.'"
@@ -150,7 +150,7 @@ pipeline {
             url: 'git@assembla.contactlab.com:platform-deployment.git'
           )
 
-          dir('app/contactdata-ui-v2') {
+          dir('app/---') {
             sh """#!/bin/bash
                 source ${env.HOME}/.rvm/scripts/rvm
                 rvm use --default 2.3.0

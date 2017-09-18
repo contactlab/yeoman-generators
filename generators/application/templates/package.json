@@ -22,7 +22,7 @@
     "prestart": "yarn run build",
     "start": "http-server ./dist -p 8180 --silent",
     "preserver": "yarn run prepare",
-    "server": "DEV_SRV=1 webpack-dev-server --hot",
+    "server": "webpack-dev-server --hot",
   },
   "bugsnag": {
     "apiKey": "<%= bugsnag %>",

@@ -3,6 +3,11 @@
   "version": "0.1.0",
   "main": "./src/index.js",
   "author": "Contactlab Product Frontend Team <developer@contactlab.com>",
+  "engines": {
+    "node": ">= 6.0",
+    "npm": ">= 5.0",
+    "yarn": ">= 1.0"
+  },
   "scripts": {
     
   },

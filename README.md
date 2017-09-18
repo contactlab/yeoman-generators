@@ -35,7 +35,7 @@ Create a custom element following the Web Component v1 specification.
 ```
 $ yo contactlab:element-next
 ```
-*[Work in progress]* Create a Polymer (v3) Web Component, with its owns:
+*[WORK IN PROGRESS]* Create a Polymer (v3) Web Component, with its owns:
 
 - HTML `template`
 - Javascript `class` extending PolymerElement
@@ -49,45 +49,21 @@ $ yo contactlab:readme
 ```
 Create a ```readme.md``` file with a template for Contactlab projects.
 
-<!--```
+```
 $ yo contactlab:application
 ```
-Create the default folder structure for a Contactlab web app project, it will ask for:
+*[WORK IN PROGRESS]* Create the default folder structure for a Contactlab web app project, it will ask for:
 - application name
 - Bugsnag API key
-- if you want to build a prototype
-
-for more details about this generator check the related section.
-
-### Difference between prototype and application
-
-If you choose to create a **prototype** project, the authentication component will be ignored and the client-side routing will be handled by ```app-route``` instead of ```router5```.
-
-### Application generator details
-Folder structure:
-
-```
-| application
-|- src
-|-- components
-|-- modules
-|-- assets
-|--- css
-|--- img
-|--- fonts
-|- deploy-utils
-|- sh-utils
-```
 
 Packages included:
-- Redux
-- Polymer (NPM wrapper) and polymer-redux
-- Polyfills for Fetch API and Promises
+- Polymer v3.0
+- Redux + polymer-redux
 - Contactsnag
-- Kubozer
 - Saray
-- Polyfills for Fetch API and Promises-->
-
+- Router5 + helpers & redux-router5
+- Lodash
+- Moment
 
 ### License
 Released under the [Apache 2.0](LICENSE) license.

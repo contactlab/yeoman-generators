@@ -57,6 +57,17 @@
     "webpack": "3.6.0",
     "webpack-dev-server": "2.8.2"
   },
+  "babel": {
+    "comments": false,
+    "compact": true,
+    "presets": [
+      "es2015"
+    ],
+    "plugins": [
+      "syntax-object-rest-spread",
+      "transform-object-rest-spread"
+    ]
+  },
   "browserslist": [
     "last 2 versions",
     "ie >= 11"

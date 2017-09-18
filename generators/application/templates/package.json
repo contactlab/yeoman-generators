@@ -20,7 +20,7 @@
     "prebuild": "yarn run prepare",
     "build": "webpack --progress",
     "build:dev": "yarn run build",
-    "build:qa": "NODE_ENV=qa yarn run build",
+    "build:staging": "NODE_ENV=staging yarn run build",
     "build:production": "NODE_ENV=production yarn run build",
     "prestart": "yarn run build",
     "start": "http-server ./dist -p 8180 --silent",

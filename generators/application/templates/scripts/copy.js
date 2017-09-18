@@ -14,8 +14,8 @@ module.exports = () =>
       path.join(VENDOR, 'contactlab-ui-components/assets')
     ))
     .then(() => copyGlob(
-      path.join(MODULES, 'webcomponents.js/*.js'),
-      path.join(VENDOR, 'webcomponents.js')
+      path.join(MODULES, '@webcomponents/webcomponentsjs/*.js*'),
+      path.join(VENDOR, 'webcomponentsjs')
     ))
     .then(() => copyGlob(
       path.join(MODULES, 'web-animations-js/*.js*'),

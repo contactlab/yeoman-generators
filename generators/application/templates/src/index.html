@@ -1,12 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+  <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <title><%= appName %></title>
+
+    <!-- Pattern Library global CSS -->
+    <link rel="stylesheet" href="/vendor/contactlab-ui-components/assets/css/contactlab-pattern.min.css">
+
+    <!-- WebComponents configuration -->
+    <script>
+      window.ShadyDOM = { force: true };
+      window.customElements.forcePolyfill = true;
+    </script>
+
+    <!-- Polyfills -->
+    <script src="/vendor/webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="/vendor/web-animations-js/web-animations-next.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Spinner -->
+    <div class="spinner-overlay big" id="starting-spinner">
+      <img src="/assets/images/spinner.svg" alt="Spinner">
+    </div>
+    <!-- /Spinner -->
+
+    <!-- Application -->
+    <!-- /Application -->
+
+    <!-- Bundle -->
+    <script>
+      window.addEventListener('WebComponentsReady', function(){
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = '/bundle.js';
+        document.body.appendChild(script);
+      });
+    </script>
+  </body>
+
 </html>

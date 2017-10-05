@@ -8,11 +8,17 @@ import props from './props';
 
 class <%= elementNameCamel %> extends PolymerElement {
 
-  static get is() { return '<%= elementName %>' }
+  static get is() { 
+    return '<%= elementName %>'; 
+  }
   
-  static get properties() { return props }
+  static get properties() { 
+    return props; 
+  }
 
-  static get template() { return template }
+  static get template() { 
+    return template; 
+  }
 
   /**
   * When the component is attached into the DOM.

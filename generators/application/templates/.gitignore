@@ -1,4 +1,10 @@
 node_modules
+*.log
+
 bower_components
 dist
+.vscode
+tmp
+coverage
+.nyc_output
 yarn-error.json

@@ -25,7 +25,7 @@ class <%= elementNameCamel %> extends PolymerElement {
   *
   * @return {null}
   */
-  connectedCallback(){
+  connectedCallback() {
     super.connectedCallback();
   }
 

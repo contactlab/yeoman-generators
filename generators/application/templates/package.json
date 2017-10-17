@@ -34,7 +34,7 @@
   "dependencies": {
     "@polymer/polymer": "next",
     "@webcomponents/webcomponentsjs": "1.0.11",
-    "contactlab-ui-components": "contactlab/contactlab-ui-components#3.0-hybrid",
+    "contactlab-ui-components": "2.0.2",
     "contactsnag": "1.1.0",
     "ikonograph": "4.0.3",
     "onesky-cli": "0.0.2",

@@ -1,10 +1,11 @@
 node_modules
 *.log
+/.bin
 
-bower_components
 dist
 .vscode
 tmp
 coverage
 .nyc_output
+.history
 yarn-error.json

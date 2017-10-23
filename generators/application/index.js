@@ -16,8 +16,13 @@ module.exports = class extends Generator {
     const prompts = [{
       type: 'input',
       name: 'appName',
-      message: 'What would you like this application to be called?',
+      message: 'Insert the application name',
       default: 'clab-application'
+    },{
+      type: 'input',
+      name: 'capistranoDir',
+      message: 'Insert the capistrano directory',
+      default: ''
     },{
       type: 'input',
       name: 'sarayRoot',

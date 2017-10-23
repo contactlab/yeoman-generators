@@ -16,6 +16,11 @@ def build = {key ->
   "yarn run build:${envFromBranch(key)}"
 }
 
+// Run command in xvfb
+def xvfb = {cmd ->
+  "xvfb-run --auto-servernum --server-num=0 --server-args=\"-screen 0, 1900x1200x16\" yarn ${cmd}"
+}
+
 // Common notification function
 def notify(status) {
   mail(
@@ -105,7 +110,16 @@ pipeline {
     stage('WCT') {
       steps {
         sh "${build()}"
-        sh 'xvfb-run --auto-servernum --server-num=0 --server-args="-screen 0, 1900x1200x16" yarn wct'
+        sh "${xvfb('wct')}"
+      }
+    }
+
+    stage('E2E') {
+      when {
+        branch env.PROD_BRANCH
+      }
+      steps {
+        sh "NODE_ENV=qa ${xvfb('e2e')}"
       }
     }
 
@@ -126,7 +140,7 @@ pipeline {
             branch: "${env.PRODUCT_PREFIX}${envFromBranch(env.BRANCH_NAME)}"
           )
 
-          sh 'rm -rf bundle.js bundle.js.map assets/ i18n/ index.html vendor/'
+          sh 'rm -rf app.js app.js.map manifest.json assets/ i18n/ index.html vendor/'
           sh "cp -r ${env.WORKSPACE}/dist/* ${env.WORKSPACE}/tmp"
           sh 'git add --all'
           sh "git commit -m 'Build ${env.BUILD_ID}' || echo 'Commit failed. There is probably nothing to commit.'"
@@ -150,7 +164,7 @@ pipeline {
             url: 'git@assembla.contactlab.com:platform-deployment.git'
           )
 
-          dir('app/---') {
+          dir('app/<%= capistranoDir %>') {
             sh """#!/bin/bash
                 source ${env.HOME}/.rvm/scripts/rvm
                 rvm use --default 2.3.0
@@ -169,8 +183,9 @@ pipeline {
   post {
     always {
       teamsbot()
-      echo 'Cleanup workspace'
-      deleteDir()
+      // Remove these comments in order to cleanup workspace after each build
+      // echo 'Cleanup workspace'
+      // deleteDir()
     }
 
     failure {

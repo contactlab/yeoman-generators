@@ -1,0 +1,13 @@
+{
+  "name": "<%= appName %>",
+  "short_name": "<%= appName %>",
+  "version": "0.1.0",
+  "author": "ContactLab",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFF",
+  "theme_color": "#FFFFFF",
+  "orientation": "portrait-primary",
+  "description": "",
+  "icons": []
+}

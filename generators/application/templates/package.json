@@ -76,6 +76,7 @@
     "pify": "3.0.0",
     "postcss-cssnext": "2.11.0",
     "postcss-easing-gradients": "1.2.3",
+    "postcss-loader": "2.0.8",
     "postcss-reporter": "5.0.0",
     "saray": "1.7.4",
     "selenium-download": "2.0.10",

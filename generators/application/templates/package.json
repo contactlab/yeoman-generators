@@ -11,6 +11,7 @@
     "yarn": ">= 1.0"
   },
   "scripts": {
+    "bump": "node ./scripts/bump",
     "prepare": "./scripts/prepare.js",
     "postinstall": "yarn run prepare",
     "stylelint": "stylelint ./src/components/**/*.postcss",
@@ -39,6 +40,7 @@
     "ikonograph": "4.0.3",
     "onesky-cli": "0.0.2",
     "polymer-redux": "1.0.3",
+    "ramda": "0.24.1",
     "redux": "3.7.2",
     "redux-devtools-extension": "2.13.2",
     "redux-router5": "5.0.0",
@@ -57,6 +59,7 @@
     "babel-preset-es2015": "6.24.1",
     "babel-register": "6.26.0",
     "cssnano": "3.10.0",
+    "data.either": "1.5.1",
     "eslint-config-contactlab": "1.0.0",
     "fs-extra": "4.0.2",
     "glob": "7.1.2",

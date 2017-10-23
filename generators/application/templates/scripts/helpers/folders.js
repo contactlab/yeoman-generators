@@ -5,6 +5,7 @@ const path = require('path');
 const root = path.resolve(__dirname, '../..');
 
 module.exports = {
+  ROOT   : root,
   MODULES: path.join(root, 'node_modules'),
   BOWER  : path.join(root, 'bower_components'),
   SRC    : path.join(root, 'src'),

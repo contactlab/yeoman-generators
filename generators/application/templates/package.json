@@ -63,6 +63,7 @@
     "cssnano": "3.10.0",
     "cucumber": "3.0.6",
     "data.either": "1.5.1",
+    "eslint": "4.9.0",
     "eslint-config-contactlab": "1.0.0",
     "fs-extra": "4.0.2",
     "glob": "7.1.2",

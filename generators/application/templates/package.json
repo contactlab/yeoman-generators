@@ -92,6 +92,7 @@
   "ava": {
     "files": [
       "./src/components/**/test/unit.js",
+      "./src/components/**/test/*.test.js",
       "./src/lib/**/test/*.js"
     ],
     "failFast": true,

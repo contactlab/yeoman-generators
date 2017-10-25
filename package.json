@@ -12,7 +12,7 @@
     "yarn": ">= 1.1"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint ./generators/*/index.js"
   },
   "repository": {
     "type": "git",
@@ -36,8 +36,18 @@
   },
   "homepage": "https://github.com/contactlab/yeoman-generators#readme",
   "dependencies": {
-    "chalk": "2.1.0",
-    "yeoman-generator": "1.1.1",
+    "chalk": "2.3.0",
+    "yeoman-generator": "2.0.1",
     "yosay": "2.0.1"
+  },
+  "devDependencies": {
+    "eslint": "4.9.0",
+    "eslint-config-contactlab": "1.0.0"
+  },
+  "eslintConfig": {
+    "extends": "contactlab",
+    "env": {
+      "node": true
+    }
   }
 }

@@ -9,7 +9,7 @@ module.exports = class extends Generator {
 
   start() {
     this.log(yosay(
-      `Welcome to the kickass ${chalk.red('Contactlab ELEMENT')} generator!`
+      `Welcome to the kickass ${chalk.red('Contactlab CUSTOM ELEMENT')} generator!`
     ));
   }
 
@@ -19,27 +19,12 @@ module.exports = class extends Generator {
       name   : 'elementName',
       message: 'What would you like this element to be called?',
       default: 'clab-element'
-    }, {
-      type   : 'confirm',
-      name   : 'postcss',
-      message: 'Do you need the <post-css> element?',
-      default: true
-    }, {
-      type   : 'confirm',
-      name   : 'domif',
-      message: 'Do you need the <dom-if> helper element?',
-      default: false
-    }, {
-      type   : 'confirm',
-      name   : 'domrepeat',
-      message: 'Do you need the <dom-repeat> helper element?',
-      default: false
     }];
 
     return this.prompt(prompts)
             .then(props => {
               this.props = props;
-
+              
               const temp = this.props.elementName.replace(/-([a-z])/g, x => x[1].toUpperCase());
 
               this.props.elementNameCamel = capitalizeFirstLetter(temp);

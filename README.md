@@ -27,25 +27,13 @@ $ yarn global add generator-contactlab
 
 ## Generators
 
+### Element
+
 ```sh
 $ yo contactlab:element
 ```
 
-Create a Polymer (v1) Web Component written in ES2015 syntax.
-
-
-```sh
-$ yo contactlab:element-standard
-```
-
-Create a custom element following the Web Component v1 specification.
-
-
-```sh
-$ yo contactlab:element-next
-```
-
-*[WORK IN PROGRESS]* Create a Polymer (v3) Web Component, with its owns:
+Create a Polymer (v3) Web Component, with its owns:
 
 - HTML `template`
 - Javascript `class` extending PolymerElement
@@ -54,13 +42,15 @@ $ yo contactlab:element-next
 - a .postcss file to be compiled for `styles`
 - AVA.js `unit test` starter
 
+### Custom Element
 
 ```sh
-$ yo contactlab:readme
+$ yo contactlab:custom-element
 ```
 
-Create a ```readme.md``` file with a template for Contactlab projects.
+Create a custom element following the Web Component v1 specification.
 
+### Application
 
 ```sh
 $ yo contactlab:application

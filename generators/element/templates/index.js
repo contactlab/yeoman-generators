@@ -1,28 +1,23 @@
 'use strict';
-<% if (npmWrapper) { %>
-import {Polymer} from 'polymer-npm-wrapper';
-<% } %>
-<% if (wcloader) { %>
-import './template.html';
-<% } %>
 
-class <%= elementNameCamel %> {
+import { Element as PolymerElement } from '@polymer/polymer/polymer-element';
+import template from './template.html';
+import props from './props';
+<% if (domif) { %> import '@polymer/polymer/lib/elements/dom-if'; <% } %>
+<% if (domrepeat) { %> import '@polymer/polymer/lib/elements/dom-repeat'; <% } %>
 
-  /**
-  * Behaviors required by the component
-  */
-  get behaviors() {
-    return [];
+class <%= elementNameCamel %> extends PolymerElement {
+
+  static get is() { 
+    return '<%= elementName %>'; 
+  }
+  
+  static get properties() { 
+    return props; 
   }
 
-  /**
-  * Component name, propertiers, behaviors and declared listeners
-  */
-  beforeRegister(){
-    this.is = '<%= elementName %>';
-    this.properties = {
-
-    }
+  static get template() { 
+    return template; 
   }
 
   /**
@@ -30,10 +25,13 @@ class <%= elementNameCamel %> {
   *
   * @return {null}
   */
-  attached(){
-
+  connectedCallback() {
+    super.connectedCallback();
   }
 
 }
 
-Polymer(<%= elementNameCamel %>);
+/**
+* Registering the new component tag
+*/
+customElements.define(<%= elementNameCamel %>.is, <%= elementNameCamel %>);

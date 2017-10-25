@@ -42,7 +42,7 @@
     "contactsnag": "1.2.0",
     "onesky-cli": "0.0.2",
     "polymer-redux": "1.0.4",
-    "ramda": "0.24.1",
+    "ramda": "0.25.0",
     "redux": "3.7.2",
     "redux-devtools-extension": "2.13.2",
     "redux-router5": "5.0.0",

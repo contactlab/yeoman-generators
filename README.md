@@ -4,7 +4,7 @@
 
 A set of generators based on [Yeoman](http://yeoman.io/) for Contactlab applications development workflow.
 
-### Install
+## Install
 First install Yeoman globally
 
 ```sh
@@ -25,7 +25,7 @@ $ npm install -g generator-contactlab
 $ yarn global add generator-contactlab
 ```
 
-### Generators
+## Generators
 
 ```sh
 $ yo contactlab:element
@@ -66,8 +66,12 @@ Create a ```readme.md``` file with a template for Contactlab projects.
 $ yo contactlab:application
 ```
 
-*[WORK IN PROGRESS]* Create the default folder structure for a Contactlab web app project, it will ask for:
+Create the default folder structure for a Contactlab web app project, with build and transpilation (*Webpack* + *Babel*)
+
+It will ask for:
 - application name
+- Capistrano scripts directory
+- Saray root path
 - Bugsnag API key
 - OneSky App API key, secret and project id
 
@@ -78,7 +82,10 @@ Packages included:
 - Contactsnag
 - Saray
 - Router5 + helpers & redux-router5
+- AVA
+- WCT
+- Nightwatch + Cucumber
 
-### License
+## License
 
 Released under the [Apache 2.0](LICENSE) license.

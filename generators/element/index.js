@@ -12,7 +12,7 @@ module.exports = class extends Generator {
 
   start(){
     this.log(yosay(
-      'Welcome to the kickass ' + chalk.red('Contactlab ELEMENT') + ' generator!'
+      'Welcome to the kickass ' + chalk.red('Contactlab ELEMENT (v2)') + ' generator!'
     ));
   }
 
@@ -24,14 +24,19 @@ module.exports = class extends Generator {
       default: 'clab-element'
     }, {
       type: 'confirm',
-      name: 'npmWrapper',
-      message: 'Are you using the "polymer-npm-wrapper" package?',
+      name: 'postcss',
+      message: 'Do you need the <post-css> element?',
       default: true
-    },{
+    }, {
       type: 'confirm',
-      name: 'wcloader',
-      message: 'Are you using the WebComponents loader with Webpack?',
-      default: true
+      name: 'domif',
+      message: 'Do you need the <dom-if> helper element?',
+      default: false
+    }, {
+      type: 'confirm',
+      name: 'domrepeat',
+      message: 'Do you need the <dom-repeat> helper element?',
+      default: false
     }];
 
     return this.prompt(prompts).then((props) => {

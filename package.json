@@ -2,10 +2,15 @@
   "name": "generator-contactlab",
   "version": "0.10.5",
   "description": "Generators for Contactlab development workflow",
+  "main": "index.js",
   "files": [
     "generators"
   ],
-  "main": "index.js",
+  "engines": {
+    "node": ">= 6.0",
+    "npm": ">= 5.0",
+    "yarn": ">= 1.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

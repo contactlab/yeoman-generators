@@ -5,12 +5,9 @@
 ## Requirements
 
 - Node >= v6.x
-- Yarn >= v1.0
-
+- Yarn >= v1.1 | NPM >= v5.0
 
 ## Installation & start
-
-Clone this repo on your machine and on project root launch:
 
 ```sh
 $ yarn install
@@ -28,9 +25,11 @@ $ yarn webpack
 # Lint with ESLint
 $ yarn lint
 
-# Runs tests (after linting)
+# Runs tests (after Flow and Lint)
 $ yarn test
-$ yarn wct
+
+# Runs E2E tests
+$ NODE_ENV=staging yarn e2e
 
 # Build commands
 $ yarn build # Development build
@@ -38,17 +37,20 @@ $ yarn build:dev # Alias for development
 $ yarn build:staging # Staging build
 $ yarn build:production # Production build
 
-# Runs http-server on localhost:8180
+# Runs http-server on port 8180
 $ yarn start
 
-# Runs webpack-dev-server on localhost:8180
+# Runs Webpack dev server
 $ yarn server
 
-# Runs Saray server on localhost:3000
+# Runs Saray server
 $ yarn saray
 
-# Runs development server (webpack-dev-server + saray)
+# Runs development server (Webpack dev server + saray)
 $ yarn dev
+
+# Bumps version. Allowed types are: patch, minor, major, prepatch, preminor, premajor, prerelease
+$ yarn bump [type]
 
 # Download or upload i18n files from/to OneSky App
 $ yarn onesky:download

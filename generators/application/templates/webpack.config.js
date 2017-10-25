@@ -9,7 +9,7 @@ const pkg            = require('./package.json');
 const SRC    = 'src';
 const DIST   = 'dist';
 const ENV    = (process.env.NODE_ENV || 'dev').toLowerCase();
-const DEVSRV = process.argv.find(arg => arg.includes('webpack-dev-server'));
+const DEVSRV = (process.argv.length > 1 ? process.argv[1].includes('webpack-dev-server') : false);
 const ISPROD = ENV === 'production';
 const OUTPUT = path.join(__dirname, DEVSRV ? SRC : DIST);
 
@@ -29,7 +29,7 @@ module.exports = {
   ],
   output: {
     path:     OUTPUT,
-    filename: 'bundle.js',
+    filename: 'app.js',
   },
   devtool: 'source-map',
   plugins: ISPROD ? PLUGINS.concat(uglify()) : PLUGINS,

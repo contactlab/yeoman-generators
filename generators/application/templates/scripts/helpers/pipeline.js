@@ -10,6 +10,13 @@ const spinner = require('ora')();
 const start = spinner => msg =>
   Promise.resolve(spinner.start(msg));
 
+const update = spinner => msg =>
+  () => {
+    spinner.text = msg;
+
+    return spinner;
+  };
+
 const succeed = spinner => msg =>
   () => spinner.succeed(msg);
 
@@ -21,6 +28,7 @@ const error = spinner => e => {
 
 module.exports = {
   start  : start(spinner),
+  update : update(spinner),
   succeed: succeed(spinner),
-  errore : error(spinner)
+  error  : error(spinner)
 };

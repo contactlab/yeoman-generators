@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 /*eslint-env node*/
 
 const cleanup                 = require('./cleanup');

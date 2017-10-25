@@ -1,0 +1,19 @@
+[ignore]
+.*/src/\(lib\|components\)/**/test/.*
+.*/src/assets
+.*/src/vendor
+.*/src/i18n
+.*/dist
+.*/scripts
+.*/stubbs
+.*/test
+.*/node_modules/stylelint
+.*/.history
+
+[include]
+
+[libs]
+
+[options]
+module.name_mapper.extension='html' -> '<PROJECT_ROOT>/.flow/html-resolver.js.flow'
+suppress_comment=\\(.\\|\n\\)*\\$FlowIgnoreNext

@@ -8,10 +8,14 @@ const {MODULES, BOWER, VENDOR} = require('./helpers/folders');
 
 module.exports = () =>
   start('Copying resources in vendor')
-    // .then(() => fs.ensureSymlink(MODULES, BOWER))
+    .then(() => fs.ensureSymlink(MODULES, BOWER))
     .then(() => copyGlob(
       path.join(MODULES, 'contactlab-ui-components/assets/+(css|fonts)'),
       path.join(VENDOR, 'contactlab-ui-components/assets')
+    ))
+    .then(() => copyGlob(
+      path.join(MODULES, 'ikonograph/+(dist|fonts)'),
+      path.join(VENDOR, 'ikonograph')
     ))
     .then(() => copyGlob(
       path.join(MODULES, '@webcomponents/webcomponentsjs/*.js*'),

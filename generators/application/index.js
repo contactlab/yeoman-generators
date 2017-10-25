@@ -1,27 +1,28 @@
-'use strict';
+/*eslint-env node*/
 
 const Generator = require('yeoman-generator');
-const yosay = require('yosay');
-const chalk = require('chalk');
-
-const capitalizeFirstLetter = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-}
+const yosay     = require('yosay');
+const chalk     = require('chalk');
 
 module.exports = class extends Generator {
 
-  start(){
+  start() {
     this.log(yosay(
-      'Welcome to the kickass ' + chalk.red('Contactlab APPLICATION') + ' generator!'
+      `Welcome to the kickass ${chalk.red('Contactlab APPLICATION')} generator!`
     ));
   }
 
-  prompts(){
+  prompts() {
     const prompts = [{
       type: 'input',
       name: 'appName',
-      message: 'What would you like this application to be called?',
+      message: 'Insert the application name',
       default: 'clab-application'
+    },{
+      type: 'input',
+      name: 'capistranoDir',
+      message: 'Insert the capistrano directory',
+      default: ''
     },{
       type: 'input',
       name: 'sarayRoot',
@@ -49,16 +50,12 @@ module.exports = class extends Generator {
       default: ''
     }];
 
-    return this.prompt(prompts).then((props) => {
+    return this.prompt(prompts).then(props => {
       this.props = props;
-      // const temp = this.props.elementName.replace(/-([a-z])/g, (g) => {
-      //   return g[1].toUpperCase();
-      // });
-      // this.props.elementNameCamel = capitalizeFirstLetter(temp);
     });
   }
 
-  create(){
+  create() {
     const appName = this.props.appName;
 
     this.fs.copyTpl(

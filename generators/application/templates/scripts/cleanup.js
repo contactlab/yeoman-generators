@@ -2,7 +2,9 @@
 
 const fs                      = require('fs-extra');
 const {start, succeed, error} = require('./helpers/pipeline');
+
 const {
+  BOWER,
   VENDOR,
   DIST,
   BIN,
@@ -12,6 +14,7 @@ const {
 
 module.exports = () =>
   start('Cleaning up')
+    .then(() => fs.remove(BOWER))
     .then(() => fs.remove(VENDOR))
     .then(() => fs.remove(DIST))
     .then(() => fs.remove(BIN))

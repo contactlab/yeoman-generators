@@ -36,8 +36,8 @@
   },
   "homepage": "https://github.com/contactlab/yeoman-generators#readme",
   "dependencies": {
-    "chalk": "2.1.0",
-    "yeoman-generator": "1.1.1",
+    "chalk": "2.3.0",
+    "yeoman-generator": "2.0.1",
     "yosay": "2.0.1"
   }
 }

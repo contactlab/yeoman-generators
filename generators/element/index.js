@@ -9,7 +9,7 @@ module.exports = class extends Generator {
 
   start() {
     this.log(yosay(
-      `Welcome to the kickass ${chalk.red('Contactlab ELEMENT (v2)')} generator!`
+      `Welcome to the kickass ${chalk.red('Contactlab ELEMENT')} generator!`
     ));
   }
 

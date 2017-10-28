@@ -119,7 +119,7 @@ pipeline {
         branch env.PROD_BRANCH
       }
       steps {
-        sh "NODE_ENV=qa ${xvfb('e2e')}"
+        sh "NODE_ENV=staging ${xvfb('e2e')}"
       }
     }
 

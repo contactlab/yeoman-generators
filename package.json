@@ -1,6 +1,6 @@
 {
   "name": "generator-contactlab",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Generators for Contactlab development workflow",
   "main": "index.js",
   "files": [

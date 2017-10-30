@@ -20,6 +20,7 @@
     "nw": "nightwatch",
     "pretest": "yarn run lint",
     "test": "nyc ava",
+    "e2e": "node ./scripts/e2e",
     "prebuild": "yarn run prepare",
     "build": "webpack --progress",
     "build:dev": "yarn run build",

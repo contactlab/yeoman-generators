@@ -1,4 +1,6 @@
-# generator-contactlab - :warning: Deprecated
+# :warning: This project is no longer mantained
+
+# generator-contactlab
 
 ```yo contactlab```
 
